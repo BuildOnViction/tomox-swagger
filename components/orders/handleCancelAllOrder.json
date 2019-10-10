@@ -6,6 +6,7 @@
     "summary": "[Deprecated] Cancel all orders",
     "description": "This endpoint should implements signature authentication",
     "operationId": "handleCancelAllOrders",
+    "deprecated": true,
     "produces": [
       "application/json"
     ],
