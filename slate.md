@@ -2,7 +2,7 @@
 title: Swagger Document for TomoDEX v1.0.0
 language_tabs:
   - shell: cURL
-  - node: request
+  - node: Node.js
   - go: GO
   - ruby: Ruby
   - python: Python
@@ -28,21 +28,6 @@ Base URLs:
 
 * <a href="https://dex.devnet.tomochain.com/api">https://dex.devnet.tomochain.com/api</a>
 
-# Authentication
-
-- oAuth2 authentication. 
-
-    - Flow: implicit
-    - Authorization URL = [https://petstore.swagger.io/oauth/authorize](https://petstore.swagger.io/oauth/authorize)
-
-|Scope|Scope Description|
-|---|---|
-|write:pets|modify pets in your account|
-|read:pets|read your pets|
-
-* API Key (api_key)
-    - Parameter Name: **api_key**, in: header. 
-
 <h1 id="swagger-document-for-tomodex-accounts">accounts</h1>
 
 Account endpoints
@@ -56,8 +41,7 @@ Account endpoints
 ```shell
 curl --request GET \
   --url https://dex.devnet.tomochain.com/api/account/string \
-  --header 'accept: application/json' \
-  --header 'api_key: API_KEY'
+  --header 'accept: application/json'
 ```
 
 ```node
@@ -69,8 +53,7 @@ var options = {
   "port": null,
   "path": "/api/account/string",
   "headers": {
-    "accept": "application/json",
-    "api_key": "API_KEY"
+    "accept": "application/json"
   }
 };
 
@@ -106,7 +89,6 @@ func main() {
 	req, _ := http.NewRequest("GET", url, nil)
 
 	req.Header.Add("accept", "application/json")
-	req.Header.Add("api_key", "API_KEY")
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -131,7 +113,6 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(url)
 request["accept"] = 'application/json'
-request["api_key"] = 'API_KEY'
 
 response = http.request(request)
 puts response.read_body
@@ -142,10 +123,7 @@ import http.client
 
 conn = http.client.HTTPSConnection("dex.devnet.tomochain.com")
 
-headers = {
-    'accept': "application/json",
-    'api_key': "API_KEY"
-    }
+headers = { 'accept': "application/json" }
 
 conn.request("GET", "/api/account/string", headers=headers)
 
@@ -158,7 +136,6 @@ print(data.decode("utf-8"))
 ```java
 HttpResponse<String> response = Unirest.get("https://dex.devnet.tomochain.com/api/account/string")
   .header("accept", "application/json")
-  .header("api_key", "API_KEY")
   .asString();
 ```
 
@@ -192,7 +169,7 @@ Returns a single account
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+None
 </aside>
 
 ## [Deprecated] Find account's token balance by user address and token address
@@ -204,8 +181,7 @@ api_key
 ```shell
 curl --request GET \
   --url https://dex.devnet.tomochain.com/api/account/string/string \
-  --header 'accept: application/json' \
-  --header 'api_key: API_KEY'
+  --header 'accept: application/json'
 ```
 
 ```node
@@ -217,8 +193,7 @@ var options = {
   "port": null,
   "path": "/api/account/string/string",
   "headers": {
-    "accept": "application/json",
-    "api_key": "API_KEY"
+    "accept": "application/json"
   }
 };
 
@@ -254,7 +229,6 @@ func main() {
 	req, _ := http.NewRequest("GET", url, nil)
 
 	req.Header.Add("accept", "application/json")
-	req.Header.Add("api_key", "API_KEY")
 
 	res, _ := http.DefaultClient.Do(req)
 
@@ -279,7 +253,6 @@ http.verify_mode = OpenSSL::SSL::VERIFY_NONE
 
 request = Net::HTTP::Get.new(url)
 request["accept"] = 'application/json'
-request["api_key"] = 'API_KEY'
 
 response = http.request(request)
 puts response.read_body
@@ -290,10 +263,7 @@ import http.client
 
 conn = http.client.HTTPSConnection("dex.devnet.tomochain.com")
 
-headers = {
-    'accept': "application/json",
-    'api_key': "API_KEY"
-    }
+headers = { 'accept': "application/json" }
 
 conn.request("GET", "/api/account/string/string", headers=headers)
 
@@ -306,7 +276,6 @@ print(data.decode("utf-8"))
 ```java
 HttpResponse<String> response = Unirest.get("https://dex.devnet.tomochain.com/api/account/string/string")
   .header("accept", "application/json")
-  .header("api_key", "API_KEY")
   .asString();
 ```
 
@@ -357,7 +326,7 @@ Status Code **200**
 
 <aside class="warning">
 To perform this operation, you must be authenticated by means of one of the following methods:
-api_key
+None
 </aside>
 
 ## Add a new account by user address
@@ -638,8 +607,8 @@ Return all tokens in an array
     "makeFee": "string",
     "takeFee": "string",
     "usd": "string",
-    "createdAt": "2019-10-15T02:49:30Z",
-    "updatedAt": "2019-10-15T02:49:30Z"
+    "createdAt": "2019-10-15T03:00:19Z",
+    "updatedAt": "2019-10-15T03:00:19Z"
   }
 ]
 ```
@@ -863,8 +832,8 @@ Returns newly created token
   "makeFee": "string",
   "takeFee": "string",
   "usd": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 ```
 
@@ -1014,8 +983,8 @@ Return all base tokens in an array
     "makeFee": "string",
     "takeFee": "string",
     "usd": "string",
-    "createdAt": "2019-10-15T02:49:30Z",
-    "updatedAt": "2019-10-15T02:49:30Z"
+    "createdAt": "2019-10-15T03:00:19Z",
+    "updatedAt": "2019-10-15T03:00:19Z"
   }
 ]
 ```
@@ -1190,8 +1159,8 @@ Return all quote tokens in an array
     "makeFee": "string",
     "takeFee": "string",
     "usd": "string",
-    "createdAt": "2019-10-15T02:49:30Z",
-    "updatedAt": "2019-10-15T02:49:30Z"
+    "createdAt": "2019-10-15T03:00:19Z",
+    "updatedAt": "2019-10-15T03:00:19Z"
   }
 ]
 ```
@@ -1371,8 +1340,8 @@ Return token object
   "makeFee": "string",
   "takeFee": "string",
   "usd": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 ```
 
@@ -1529,8 +1498,8 @@ Return all pairs in an array
     "rank": 0,
     "makeFee": "string",
     "takeFee": "string",
-    "createdAt": "2019-10-15T02:49:30Z",
-    "updatedAt": "2019-10-15T02:49:30Z"
+    "createdAt": "2019-10-15T03:00:19Z",
+    "updatedAt": "2019-10-15T03:00:19Z"
   }
 ]
 ```
@@ -1736,8 +1705,8 @@ Returns newly created pair
   "rank": 0,
   "makeFee": "string",
   "takeFee": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 ```
 
@@ -1889,8 +1858,8 @@ Multiple status values can be provided with comma separated strings
   "rank": 0,
   "makeFee": "string",
   "takeFee": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 ```
 
@@ -2379,8 +2348,8 @@ Return all orders in an array
       "makeFee": "string",
       "takeFee": "string",
       "pairName": "string",
-      "createdAt": "2019-10-15T02:49:30Z",
-      "updatedAt": "2019-10-15T02:49:30Z"
+      "createdAt": "2019-10-15T03:00:19Z",
+      "updatedAt": "2019-10-15T03:00:19Z"
     }
   ]
 }
@@ -2628,8 +2597,8 @@ Returns newly created order
   "makeFee": "string",
   "takeFee": "string",
   "pairName": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 ```
 
@@ -2792,8 +2761,8 @@ Return all orders in an array
     "makeFee": "string",
     "takeFee": "string",
     "pairName": "string",
-    "createdAt": "2019-10-15T02:49:30Z",
-    "updatedAt": "2019-10-15T02:49:30Z"
+    "createdAt": "2019-10-15T03:00:19Z",
+    "updatedAt": "2019-10-15T03:00:19Z"
   }
 ]
 ```
@@ -2998,8 +2967,8 @@ Return all orders in an array
       "makeFee": "string",
       "takeFee": "string",
       "pairName": "string",
-      "createdAt": "2019-10-15T02:49:30Z",
-      "updatedAt": "2019-10-15T02:49:30Z"
+      "createdAt": "2019-10-15T03:00:19Z",
+      "updatedAt": "2019-10-15T03:00:19Z"
     }
   ]
 }
@@ -3958,8 +3927,8 @@ corresponding-to-a-basetoken-and-a-quotetoken-parameters">Parameters</h3>
       "makeFee": "string",
       "takeFee": "string",
       "pairName": "string",
-      "createdAt": "2019-10-15T02:49:30Z",
-      "updatedAt": "2019-10-15T02:49:30Z"
+      "createdAt": "2019-10-15T03:00:19Z",
+      "updatedAt": "2019-10-15T03:00:19Z"
     }
   ]
 }
@@ -4160,8 +4129,8 @@ Return all trades in an array with total match
       "pricepoint": "string",
       "amount": "string",
       "status": "string",
-      "createdAt": "2019-10-15T02:49:30Z",
-      "updatedAt": "2019-10-15T02:49:30Z"
+      "createdAt": "2019-10-15T03:00:19Z",
+      "updatedAt": "2019-10-15T03:00:19Z"
     }
   ]
 }
@@ -4350,8 +4319,8 @@ Return trades array
       "pricepoint": "string",
       "amount": "string",
       "status": "string",
-      "createdAt": "2019-10-15T02:49:30Z",
-      "updatedAt": "2019-10-15T02:49:30Z"
+      "createdAt": "2019-10-15T03:00:19Z",
+      "updatedAt": "2019-10-15T03:00:19Z"
     }
   ]
 }
@@ -4706,8 +4675,8 @@ Return notifications in an array
     "message": "string",
     "type": "string",
     "status": "string",
-    "createdAt": "2019-10-15T02:49:30Z",
-    "updatedAt": "2019-10-15T02:49:30Z"
+    "createdAt": "2019-10-15T03:00:19Z",
+    "updatedAt": "2019-10-15T03:00:19Z"
   }
 ]
 ```
@@ -4898,8 +4867,8 @@ Returns newly updated notification
   "message": "string",
   "type": "string",
   "status": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 ```
 
@@ -5393,8 +5362,8 @@ This operation does not require authentication
   "makeFee": "string",
   "takeFee": "string",
   "usd": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -5440,8 +5409,8 @@ This operation does not require authentication
   "rank": 0,
   "makeFee": "string",
   "takeFee": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -5595,8 +5564,8 @@ This operation does not require authentication
   "makeFee": "string",
   "takeFee": "string",
   "pairName": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -5800,8 +5769,8 @@ This operation does not require authentication
       "makeFee": "string",
       "takeFee": "string",
       "pairName": "string",
-      "createdAt": "2019-10-15T02:49:30Z",
-      "updatedAt": "2019-10-15T02:49:30Z"
+      "createdAt": "2019-10-15T03:00:19Z",
+      "updatedAt": "2019-10-15T03:00:19Z"
     }
   ]
 }
@@ -5837,8 +5806,8 @@ This operation does not require authentication
   "pricepoint": "string",
   "amount": "string",
   "status": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -5915,8 +5884,8 @@ This operation does not require authentication
   "message": "string",
   "type": "string",
   "status": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -6012,8 +5981,8 @@ This operation does not require authentication
   "makeFee": "string",
   "takeFee": "string",
   "usd": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -6061,8 +6030,8 @@ This operation does not require authentication
   "rank": 0,
   "makeFee": "string",
   "takeFee": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -6173,8 +6142,8 @@ This operation does not require authentication
   "makeFee": "string",
   "takeFee": "string",
   "pairName": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -6228,8 +6197,8 @@ This operation does not require authentication
   "pricepoint": "string",
   "amount": "string",
   "status": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
@@ -6268,8 +6237,8 @@ This operation does not require authentication
   "message": "string",
   "type": "string",
   "status": "string",
-  "createdAt": "2019-10-15T02:49:30Z",
-  "updatedAt": "2019-10-15T02:49:30Z"
+  "createdAt": "2019-10-15T03:00:19Z",
+  "updatedAt": "2019-10-15T03:00:19Z"
 }
 
 ```
