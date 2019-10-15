@@ -209,6 +209,9 @@
   },
   "definitions": {
     "Account": {
+      "example": {
+        "address": "0xF7349C253FF7747Df661296E0859c44e974fb52E"
+      },
       "type": "object",
       "properties": {
         "id": {
