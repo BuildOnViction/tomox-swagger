@@ -8,9 +8,11 @@ node widdershins --search true --language_tabs 'shell:cURL' 'node:request' 'go:G
 
 Change the httpsnippet for javascript key to `node:request` . [(Read more)](https://github.com/Kong/httpsnippet/tree/master/src/targets)
 
-Then, replace `request` to `Node.js` in `slate.md`
+Replace `request` to `Node.js` in `slate.md`
 
 ## Build
+
+- Copy slate.md content to `apidocs/source/index.html.md` then
 
 `node shins.js`
 
