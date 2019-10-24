@@ -191,24 +191,11 @@
       }
     }
   },
-  "securityDefinitions": {
-    "petstore_auth": {
-      "type": "oauth2",
-      "authorizationUrl": "https://petstore.swagger.io/oauth/authorize",
-      "flow": "implicit",
-      "scopes": {
-        "write:pets": "modify pets in your account",
-        "read:pets": "read your pets"
-      }
-    },
-    "api_key": {
-      "type": "apiKey",
-      "name": "api_key",
-      "in": "header"
-    }
-  },
   "definitions": {
     "Account": {
+      "example": {
+        "address": "0xF7349C253FF7747Df661296E0859c44e974fb52E"
+      },
       "type": "object",
       "properties": {
         "id": {
